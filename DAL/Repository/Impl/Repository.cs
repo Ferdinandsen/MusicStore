@@ -15,5 +15,31 @@ namespace DAL.Repository.Impl
                 return db.Albums.ToList();
             }
         }
+
+
+        public List<Artist> GetArtistByAlbum(Album album)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CreateAlbum(Album album)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Album album)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(Album album)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Details(Album album)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
