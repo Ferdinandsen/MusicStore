@@ -9,5 +9,14 @@ namespace DAL.Repository
     interface IRepository
     {
         List<Album> GetAllAlbums();
+        List<Artist> GetArtistByAlbum(Album album);
+
+        void CreateAlbum(Album album);
+
+        void Update(Album album);
+
+        void Delete(Album album);
+
+        void Details(Album album);
     }
 }
