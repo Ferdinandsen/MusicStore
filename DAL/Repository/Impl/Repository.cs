@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository.Impl
 {
-    class Repository
+    class Repository : IRepository
     {
+        public List<Album> GetAllAlbums()
+        {
+            using (var db = new DBConnection())
+            {
+                return db.Albums.ToList();
+            }
+        }
     }
 }
