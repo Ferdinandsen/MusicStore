@@ -13,9 +13,10 @@ namespace MusicStore.Controllers
     {
         IRepository rep = new Repository();
         // GET: Album
-        public ActionResult Index()
-        {
-            return View();
+        public ActionResult Index(){
+         
+            Console.WriteLine("WWWWWWWWWWWWWWWW" + rep.GetAllAlbums().Count());
+            return View(rep.GetAllAlbums());
         }
     }
 }

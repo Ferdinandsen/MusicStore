@@ -37,7 +37,7 @@ namespace DAL.Repository.Impl
         }
 
         public void Details(Album album)
-        {
+    {
             throw new NotImplementedException();
         }
     }
