@@ -1,0 +1,27 @@
+﻿@model IEnumerable<DAL.Album>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table border="1">
+
+    <tr>
+        <th>ID</th>
+        <th>Album name</th>
+    </tr>
+    <tbody>
+        @foreach (DAL.Album album in Model)
+        {
+            <tr>
+                <td>
+                    @album.id
+                </td>
+                <td>
+                    @album.title
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<button>Add</button>
