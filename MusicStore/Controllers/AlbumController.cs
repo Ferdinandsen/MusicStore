@@ -13,7 +13,7 @@ namespace MusicStore.Controllers
     public class AlbumController : Controller
     {
         Albumfacade facade;
-        //IAlbumRepository rep = new AlbumRepository();
+
         // GET: Album
         public ActionResult Index(int? id)
         {
