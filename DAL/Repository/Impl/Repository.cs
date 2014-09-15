@@ -6,24 +6,15 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository.Impl
 {
-    public class Repository : IRepository
+    internal class Repository : IRepository
     {
         public List<Album> GetAllAlbums()
         {
-            try
-            {
-                using (var db = new DBConnection())
+            using (DBConnection db = new DBConnection())
                 {
                     return db.Albums.ToList();
                 }
             }
-            catch (Exception)
-            {
-                Console.WriteLine("Fuck");
-            }
-            return null;
-
-        }
 
         public List<Artist> GetArtistByAlbum(Album album)
         {

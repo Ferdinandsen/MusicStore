@@ -6,17 +6,17 @@ using System.Web.Mvc;
 using DAL;
 using DAL.Repository;
 using DAL.Repository.Impl;
+
 namespace MusicStore.Controllers
 {
     public class AlbumController : Controller
     {
-
-        Repository albumRep = new Repository();
+        IRepository albumRep = new Repository();
         // GET: Album
         public ActionResult Index(){
             return View(albumRep.GetAllAlbums());
         }
-
+         
         public ActionResult AddAlbum()
         {
             return View();
