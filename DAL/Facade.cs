@@ -11,10 +11,15 @@ namespace DAL
     public class Albumfacade
     {
         IAlbumRepository alRep;
+        IArtistRepo arRep;
 
         public IAlbumRepository getAlbumRep()
         {
             return alRep != null ? alRep : alRep = new AlbumRepository();
+        }
+        public IArtistRepo GetArtistRep()
+        {
+            return arRep != null ? arRep : arRep = new ArtistRepository();
         }
     }
 }

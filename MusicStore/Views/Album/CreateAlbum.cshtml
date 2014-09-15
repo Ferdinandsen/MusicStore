@@ -1,4 +1,5 @@
-﻿
+﻿@model MusicStore.Models.AlbumViewModels
+
 @{
     ViewBag.Title = "CreateAlbum";
 }
@@ -18,8 +19,14 @@
     <input type="text" name="genre" placeholder="Insert genre" />
     <br />
 
-    <input type="text" name="artist" placeholder="Insert artist" />
+    <select>
+        @foreach (DAL.Artist artist in Model)
+        {
+             < option value="@artist.name" @artist.name/>
+        }
+       </select>
     <br />
+
 
     <input type="text" name="albumArtUrl" placeholder="Insert AlbumArtUrl" />
     <br />

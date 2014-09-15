@@ -168,6 +168,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AlbumModel.cs" />
     <Compile Include="Models\AlbumViewModels.cs" />
+    <Compile Include="Models\CreateAlbumViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

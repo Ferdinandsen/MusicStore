@@ -26,17 +26,18 @@ namespace MusicStore.Controllers
 
         public ActionResult CreateAlbum()
         {
-            return View();
+            facade = new Albumfacade();
+            CreateAlbumViewModel model = new CreateAlbumViewModel();
+            model.GetAllArtists = facade.GetArtistRep().GetAllArtist();
+            return View(model);
         }
 
         [HttpPost]
         public ActionResult AddAlbum(AlbumModel model)
         {
             facade = new Albumfacade();
-            facade.getAlbumRep().CreateAlbum(new Album { title = model.Title, artistId = model.Artist, price = model.Price, genreId = model.Genre, albumArtURL = model.AlbumArtUrl, songSampleURL = model.SongSampleUrl, releaseDate = model.ReleaseDate});
+            facade.getAlbumRep().CreateAlbum(new Album { title = model.Title, artistId = model.Artist, price = model.Price, genreId = model.Genre, albumArtURL = model.AlbumArtUrl, songSampleURL = model.SongSampleUrl, releaseDate = model.ReleaseDate });
             return RedirectToAction("Index");
         }
-
-
     }
 }
