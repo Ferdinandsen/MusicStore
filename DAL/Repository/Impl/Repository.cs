@@ -14,7 +14,6 @@ namespace DAL.Repository.Impl
             {
                 using (var db = new DBConnection())
                 {
-                    Console.WriteLine("nu er vi i repository");
                     return db.Albums.ToList();
                 }
             }
