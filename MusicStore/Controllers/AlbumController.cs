@@ -15,11 +15,12 @@ namespace MusicStore.Controllers
         Albumfacade facade;
         //IAlbumRepository rep = new AlbumRepository();
         // GET: Album
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
             facade = new Albumfacade();
             AlbumViewModels model = new AlbumViewModels();
             model.AllAlbums = facade.getAlbumRep().GetAllAlbums();
+            model.GetSelectedAlbum = id != null ? model.AllAlbums.FirstOrDefault(a => a.id == id) : model.AllAlbums.FirstOrDefault();
             return View(model);
         }
 
@@ -35,5 +36,7 @@ namespace MusicStore.Controllers
             facade.getAlbumRep().CreateAlbum(new Album { title = model.Title, artistId = model.Artist, price = model.Price, genreId = model.Genre, albumArtURL = model.AlbumArtUrl, songSampleURL = model.SongSampleUrl, releaseDate = model.ReleaseDate});
             return RedirectToAction("Index");
         }
+
+
     }
 }
