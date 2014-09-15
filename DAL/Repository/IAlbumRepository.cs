@@ -17,6 +17,5 @@ namespace DAL.Repository
         void Update(Album album);
 
         void Delete(Album album);
-              
     }
 }
