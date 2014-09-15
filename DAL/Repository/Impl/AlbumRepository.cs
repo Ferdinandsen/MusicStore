@@ -25,11 +25,6 @@ namespace DAL.Repository.Impl
             }
         }
 
-        public List<Artist> GetArtistByAlbum(Album album)
-        {
-            throw new NotImplementedException();
-        }
-
         public void CreateAlbum(Album album)
         {
             using (var db = new DBConnection())
