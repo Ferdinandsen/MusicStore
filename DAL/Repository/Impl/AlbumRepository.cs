@@ -13,11 +13,11 @@ namespace DAL.Repository.Impl
         {
             try
             {
-                using (DBConnection db = new DBConnection())
-                {
-                    return db.Albums.ToList();
-                }
+            using (DBConnection db = new DBConnection())
+            {
+                return db.Albums.ToList();
             }
+        }
             catch (Exception e)
             {
                 Console.WriteLine("fejl" + e.Message);
@@ -46,7 +46,7 @@ namespace DAL.Repository.Impl
         }
 
         public void Details(Album album)
-        {
+    {
             throw new NotImplementedException();
         }
     }
