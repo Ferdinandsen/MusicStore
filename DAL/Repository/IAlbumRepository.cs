@@ -9,14 +9,14 @@ namespace DAL.Repository
     public interface IAlbumRepository
     {
         List<Album> GetAllAlbums();
-        List<Artist> GetArtistByAlbum(Album album);
+
+        Album GetAlbumById(int id);
 
         void CreateAlbum(Album album);
 
         void Update(Album album);
 
         void Delete(Album album);
-
-        void Details(Album album);
+              
     }
 }
