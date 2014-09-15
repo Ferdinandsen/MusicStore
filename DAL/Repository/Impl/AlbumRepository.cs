@@ -3,18 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL.Repository;
 
 namespace DAL.Repository.Impl
 {
-    internal class Repository : IRepository
+    internal class AlbumRepository : IAlbumRepository
     {
         public List<Album> GetAllAlbums()
         {
+            try
+            {
             using (DBConnection db = new DBConnection())
-                {
-                    return db.Albums.ToList();
-                }
+            {
+                return db.Albums.ToList();
             }
+        }
+            catch (Exception e)
+            {
+                Console.WriteLine("fejl" + e.Message);
+                throw;
+            }
+        }
 
         public List<Artist> GetArtistByAlbum(Album album)
         {
@@ -37,7 +46,7 @@ namespace DAL.Repository.Impl
         }
 
         public void Details(Album album)
-        {
+    {
             throw new NotImplementedException();
         }
     }

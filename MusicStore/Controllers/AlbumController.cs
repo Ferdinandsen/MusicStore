@@ -11,21 +11,13 @@ namespace MusicStore.Controllers
 {
     public class AlbumController : Controller
     {
-        IRepository albumRep = new Repository();
+        Albumfacade facade;
+        //IAlbumRepository rep = new AlbumRepository();
         // GET: Album
-        public ActionResult Index(){
-            return View(albumRep.GetAllAlbums());
-        }
-         
-        public ActionResult AddAlbum()
+        public ActionResult Index()
         {
-            return View();
-        }
-
-    [HttpPost]
-        public ActionResult AddAlbum()
-        {
-            return View();
+            facade = new Albumfacade();
+            return View(facade.getAlbumRep().GetAllAlbums());
         }
     }
 }

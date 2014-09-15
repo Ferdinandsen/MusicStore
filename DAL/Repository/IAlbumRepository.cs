@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    public interface IRepository
+    public interface IAlbumRepository
     {
         List<Album> GetAllAlbums();
         List<Artist> GetArtistByAlbum(Album album);

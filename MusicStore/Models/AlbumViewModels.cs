@@ -9,6 +9,6 @@ namespace MusicStore.Models
     public class AlbumViewModels
     {
         public List<Album> AllAlbums { get; set; }
-        public void GetSelectedAlbum { get; set; }
+        public Album GetSelectedAlbum { get; set; }
     }
 }

@@ -69,12 +69,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Facade.cs" />
     <Compile Include="Genre.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\Impl\Repository.cs" />
-    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\IArtistRepo.cs" />
+    <Compile Include="Repository\IGenreRepo.cs" />
+    <Compile Include="Repository\Impl\AlbumRepository.cs" />
+    <Compile Include="Repository\IAlbumRepository.cs" />
+    <Compile Include="Repository\Impl\ArtistRepository.cs" />
+    <Compile Include="Repository\Impl\GenreRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="DBModel.edmx">
@@ -102,6 +107,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
