@@ -25,11 +25,6 @@ namespace DAL.Repository.Impl
             }
         }
 
-        public List<Artist> GetArtistByAlbum(Album album)
-        {
-            throw new NotImplementedException();
-        }
-
         public void CreateAlbum(Album album)
         {
             using (var db = new DBConnection())
@@ -45,6 +40,12 @@ namespace DAL.Repository.Impl
         }
 
         public void Delete(Album album)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public Album GetAlbumById(int id)
         {
             throw new NotImplementedException();
         }

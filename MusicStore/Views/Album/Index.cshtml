@@ -13,18 +13,40 @@
     <tbody>
         @foreach (DAL.Album album in Model.AllAlbums)
         {
-            <tr>
-                <td>
-                    @album.id
-                </td>
-                <td>
-                    @album.title
-                </td>
+            <tr onclick="window.location.href = '@Url.Action("Index", "Album", new {id = album.id})'">
+                @if (Model.GetSelectedAlbum != null && Model.GetSelectedAlbum.id == album.id)
+                {
+
+
+                    <td style="background-color:green">
+                        @album.id
+                    </td>
+                    <td style="background-color:green">
+                        @album.title
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        @album.id
+                    </td>
+                    <td>
+                        @album.title
+                    </td>
+                }
             </tr>
         }
-
     </tbody>
 </table>
 <form action="/Album/CreateAlbum">
     <input type="submit" value="Add" />
-    </form>
+</form>
+
+
+@Model.GetSelectedAlbum.title <br />
+@Model.GetSelectedAlbum.price <br />
+@Model.GetSelectedAlbum.Genre.name <br />
+@Model.GetSelectedAlbum.Artist.name <br />
+
+
+
