@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DAL.Album>
+﻿@model MusicStore.Models.AlbumViewModels
 @{
     ViewBag.Title = "Index";
 }
@@ -11,7 +11,7 @@
         <th>Album name</th>
     </tr>
     <tbody>
-        @foreach (DAL.Album album in Model)
+        @foreach (DAL.Album album in Model.AllAlbums)
         {
             <tr>
                 <td>
@@ -25,6 +25,6 @@
 
     </tbody>
 </table>
-<form action="/Album/AddAlbum">
+<form action="/Album/CreateAlbum">
     <input type="submit" value="Add" />
     </form>

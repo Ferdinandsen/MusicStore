@@ -32,7 +32,11 @@ namespace DAL.Repository.Impl
 
         public void CreateAlbum(Album album)
         {
-            throw new NotImplementedException();
+            using (var db = new DBConnection())
+            {
+                db.Albums.Add(album);
+                db.SaveChanges();
+            }
         }
 
         public void Update(Album album)
