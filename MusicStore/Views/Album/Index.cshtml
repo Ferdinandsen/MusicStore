@@ -42,11 +42,11 @@
     <input type="submit" value="Add" />
 </form>
 
-
-@Model.GetSelectedAlbum.title <br />
-@Model.GetSelectedAlbum.price <br />
-@Model.GetSelectedAlbum.Genre.name <br />
-@Model.GetSelectedAlbum.Artist.name <br />
-
+<div style="border:medium">
+    @Model.GetSelectedAlbum.title <br />
+    @Model.GetSelectedAlbum.price <br />
+    @Model.GetSelectedAlbum.genreId <br />
+    @Model.GetSelectedAlbum.artistId <br />
+</div>
 
 
