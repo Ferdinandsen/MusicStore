@@ -16,5 +16,14 @@ namespace DAL.Repository.Impl
                 return db.Artists.ToList();
             }
         }
+
+        public void createArtist(Artist artist)
+        {
+            using (var db = new DBConnection())
+            {
+                db.Artists.Add(artist);
+                db.SaveChanges();
+            }
+        }
     }
 }

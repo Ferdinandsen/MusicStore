@@ -1,15 +1,14 @@
-﻿using System;
+﻿using DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using DAL;
 
 namespace MusicStore.Models
 {
-    public class AlbumViewModels
+    public class ArtistViewModel
     {
-        public List<Album> AllAlbums { get; set; }
-        public Album GetSelectedAlbum { get; set; }
         public List<Artist> AllArtists { get; set; }
+        public Artist GetSelectedArtist { get; set; }
     }
 }

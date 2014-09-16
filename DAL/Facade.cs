@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class Albumfacade
+    public class DataAccessLayerfacade
     {
         IAlbumRepository alRep;
         IArtistRepo arRep;

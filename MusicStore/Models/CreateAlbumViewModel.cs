@@ -10,6 +10,5 @@ namespace MusicStore.Models
     {
         public List<Artist> GetAllArtists { get; set; }
         public List<Genre> GetAllGenres { get; set; }
-
     }
 }
