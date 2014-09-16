@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Repository.ArtistRepo
+namespace DAL.Repository
 {
-    interface IArtistRepo
+    public interface IArtistRepo
     {
-        List<Artist> GetAllArtist();
+             List<Artist> GetAllArtist();
+             void createArtist(Artist artist);
     }
 }

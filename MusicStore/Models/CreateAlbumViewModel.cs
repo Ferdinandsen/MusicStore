@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using DAL.Repository.Impl;
+using DAL;
 
 namespace MusicStore.Models
 {
     public class CreateAlbumViewModel
     {
-        //List<Genre>
+        public List<Artist> GetAllArtists { get; set; }
+        public List<Genre> GetAllGenres { get; set; }
     }
 }

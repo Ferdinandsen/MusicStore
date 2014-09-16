@@ -8,13 +8,18 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class Albumfacade
+    public class DataAccessLayerfacade
     {
         IAlbumRepository alRep;
+        IArtistRepo arRep;
 
         public IAlbumRepository getAlbumRep()
         {
             return alRep != null ? alRep : alRep = new AlbumRepository();
+        }
+        public IArtistRepo GetArtistRep()
+        {
+            return arRep != null ? arRep : arRep = new ArtistRepository();
         }
     }
 }

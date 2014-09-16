@@ -1,0 +1,31 @@
+﻿@model MusicStore.Models.ArtistViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table border="1">
+
+    <tr>
+        <th>ID</th>
+        <th>Artist name</th>
+    </tr>
+
+    <tbody>
+        @foreach (DAL.Artist artist in Model.AllArtists)
+        {
+            <tr>
+                <td>
+                    @artist.id
+                </td>
+                <td>
+                    @artist.name
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<form action="/Artist/CreateArtist">
+    <input type="submit" value="Add" />
+</form>
