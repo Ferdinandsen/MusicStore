@@ -20,6 +20,7 @@ namespace MusicStore.Controllers
         {
             facade = new DataAccessLayerfacade();
             model = new AlbumViewModels();
+         
             if (facade.getAlbumRep().GetAllAlbums().Count == 0)
             {
                 model.AllAlbums = facade.getAlbumRep().GetAllAlbums();
