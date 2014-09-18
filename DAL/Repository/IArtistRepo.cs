@@ -9,6 +9,6 @@ namespace DAL.Repository
     public interface IArtistRepo
     {
              List<Artist> GetAllArtist();
-             void createArtist(Artist artist);
+             void CreateArtist(Artist artist);
     }
 }

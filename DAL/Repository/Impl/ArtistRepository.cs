@@ -18,7 +18,7 @@ namespace DAL.Repository.Impl
             }
         }
 
-        public void createArtist(Artist artist)
+        public void CreateArtist(Artist artist)
         {
             using (var db = new DBConnection())
             {
