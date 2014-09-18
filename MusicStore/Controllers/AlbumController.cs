@@ -21,13 +21,13 @@ namespace MusicStore.Controllers
             facade = new DataAccessLayerfacade();
             model = new AlbumViewModels();
          
-            if (facade.getAlbumRep().GetAllAlbums().Count == 0)
+            if (facade.GetAlbumRep().GetAllAlbums().Count == 0)
             {
-                model.AllAlbums = facade.getAlbumRep().GetAllAlbums();
+                model.AllAlbums = facade.GetAlbumRep().GetAllAlbums();
             }
             else
             {
-                model.AllAlbums = facade.getAlbumRep().GetAllAlbums();
+                model.AllAlbums = facade.GetAlbumRep().GetAllAlbums();
                 model.GetSelectedAlbum = id != null ? model.AllAlbums.FirstOrDefault(a => a.id == id) : model.AllAlbums.FirstOrDefault();
             }
             return View(model);
@@ -45,7 +45,7 @@ namespace MusicStore.Controllers
         public ActionResult AddAlbum(AlbumModel model)
         {
             facade = new DataAccessLayerfacade();
-            facade.getAlbumRep().CreateAlbum(new Album { title = model.Title, artistId = model.Artist, price = model.Price, genreId = model.Genre, albumArtURL = model.AlbumArtUrl, songSampleURL = model.SongSampleUrl, releaseDate = model.ReleaseDate });
+            facade.GetAlbumRep().CreateAlbum(new Album { title = model.Title, artistId = model.Artist, price = model.Price, genreId = model.Genre, albumArtURL = model.AlbumArtUrl, songSampleURL = model.SongSampleUrl, releaseDate = model.ReleaseDate });
             return RedirectToAction("Index");
         }
     }

@@ -13,7 +13,6 @@ namespace DAL.Repository.Impl
         {
             using (var db = new DBConnection())
             {
-                Console.WriteLine(db.Artists.Count());
                 return db.Artists.ToList();
             }
         }

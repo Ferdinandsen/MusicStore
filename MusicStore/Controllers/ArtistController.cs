@@ -31,11 +31,7 @@ namespace MusicStore.Controllers
 
         public ActionResult CreateArtist()
         {
-            facade = new DataAccessLayerfacade();
-            ArtistViewModel model = new ArtistViewModel();
-            model.AllArtists = facade.GetArtistRep().GetAllArtist();
-            Console.WriteLine(model.AllArtists.Count);
-            return View(model);
+            return View();
         }
 
         [HttpPost]

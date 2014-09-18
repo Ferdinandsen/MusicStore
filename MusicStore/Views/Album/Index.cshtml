@@ -4,43 +4,68 @@
 }
 
 <h2>Index</h2>
-<table border="1">
-
-    <tr>
-        <th>ID</th>
-        <th>Album name</th>
-    </tr>
-    <tbody>
 
 
-        @foreach (DAL.Album album in Model.AllAlbums)
-        {
-            <tr onclick="window.location.href = '@Url.Action("Index", "Album", new {id = album.id})'">
-                @if (Model.GetSelectedAlbum != null && Model.GetSelectedAlbum.id == album.id)
-                {
-                    <td style="background-color:green">
-                        @album.id
-                    </td>
-                    <td style="background-color:green">
-                        @album.title
-                    </td>
-                }
-                else
-                {
-                    <td>
-                        @album.id
-                    </td>
-                    <td>
-                        @album.title
-                    </td>
-                }
+<div class="row">
+    <div class="col-md-3">
+
+        <table border="1">
+
+            <tr>
+                <th>ID</th>
+                <th>Album name</th>
             </tr>
-        }
-    </tbody>
-</table>
-<form action="/Album/CreateAlbum">
-    <input type="submit" value="Add" />
-</form>
+            <tbody>
+
+
+                @foreach (DAL.Album album in Model.AllAlbums)
+                {
+                    <tr onclick="window.location.href = '@Url.Action("Index", "Album", new {id = album.id})'">
+                        @if (Model.GetSelectedAlbum != null && Model.GetSelectedAlbum.id == album.id)
+                        {
+                            <td style="background-color:green">
+                                @album.id
+                            </td>
+                            <td style="background-color:green">
+                                @album.title
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                @album.id
+                            </td>
+                            <td>
+                                @album.title
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <form action="/Album/CreateAlbum">
+            <input type="submit" value="Add" />
+        </form>
+    </div>
+    <div class="col-md-3" style="border-color:black;border:solid">
+        Album title: @Model.GetSelectedAlbum.title
+        <br />
+        Album price: @Model.GetSelectedAlbum.price
+        <br />
+        Album release date: @Model.GetSelectedAlbum.releaseDate
+        <br />
+        Genre: @Model.GetSelectedAlbum.Genre.name
+        <br />
+        Artist: @Model.GetSelectedAlbum.Artist.name
+        <br />
+        Album URL: <a href="@Model.GetSelectedAlbum.albumArtURL"> LINK </a>
+        <br />
+        Song sample: <a href="@Model.GetSelectedAlbum.songSampleURL"> LINK </a>
+        <br />
+
+        
+    </div>
+</div>
 
 @*@if (Model.AllAlbums != null)
 {

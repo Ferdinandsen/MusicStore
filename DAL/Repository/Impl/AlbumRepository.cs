@@ -15,7 +15,7 @@ namespace DAL.Repository.Impl
             {
                 using (DBConnection db = new DBConnection())
                 {
-                    return db.Albums.ToList();
+                    return db.Albums.Include("Genre").Include("Artist").ToList();
                 }
             }
             catch (Exception e)

@@ -1,0 +1,32 @@
+﻿@model MusicStore.Models.AlbumViewModels
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table border="1">
+
+    <tr>
+        <th>ID</th>
+        <th>Genre name</th>
+    </tr>
+
+    <tbody>
+        @foreach (DAL.Genre genre in Model.AllGenres)
+        {
+            <tr>
+                <td>
+                    @genre.id
+                </td>
+                <td>
+                    @genre.name
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<form action="/Genre/CreateGenre">
+    <input type="submit" value="Add" />
+</form>
+
