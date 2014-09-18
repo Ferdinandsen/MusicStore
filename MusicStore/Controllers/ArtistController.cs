@@ -38,7 +38,7 @@ namespace MusicStore.Controllers
         public ActionResult CreateArtist(ArtistModel model)
         {
             facade = new DataAccessLayerfacade();
-            facade.GetArtistRep().createArtist(new Artist {name = model.Name });
+            facade.GetArtistRep().CreateArtist(new Artist {name = model.Name });
             return RedirectToAction("Index");
         }
     }
