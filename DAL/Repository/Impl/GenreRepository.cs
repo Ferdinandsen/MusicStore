@@ -7,11 +7,22 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository.Impl
 {
-    class GenreRepository : IGenreRepo
+    internal class GenreRepository : IGenreRepo
     {
-        public List<Genre> GetAllGenre()
+        public List<Genre> GetAllGenres()
         {
-            throw new NotImplementedException();
+            using (var db = new DBConnection())
+            {
+                return db.Genres.ToList();
+            }
+        }
+        public void CreateGenre(Genre genre)
+        {
+            using (var db = new DBConnection())
+            {
+                db.Genres.Add(genre);
+                db.SaveChanges();
+            }
         }
     }
 }
