@@ -2,9 +2,9 @@
 
 namespace DAL.Repository
 {
-   public interface IGenreRepo
+    public interface IGenreRepo
     {
         List<Genre> GetAllGenres();
-       void CreateGenre(Genre genre);
+        void CreateGenre(Genre genre);
     }
 }

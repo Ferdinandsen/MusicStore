@@ -15,7 +15,7 @@ namespace MusicStore.Controllers
         {
             _facade = new DataAccessLayerfacade();
             _model = new AlbumViewModels();
-
+         
             if (_facade.GetAlbumRep().GetAllAlbums().Count == 0)
             {
                 _model.AllAlbums = _facade.GetAlbumRep().GetAllAlbums();
@@ -54,6 +54,14 @@ namespace MusicStore.Controllers
                     releaseDate = model.ReleaseDate
                 });
             return RedirectToAction("Index");
+        }
+
+        public ActionResult UpdateAlbum(int? id)
+        {
+            facade = new DataAccessLayerfacade();
+            model = new AlbumViewModels();
+            model.GetSelectedAlbum = facade.GetAlbumRep().GetAlbumById(id);
+            return View(model);
         }
     }
 }

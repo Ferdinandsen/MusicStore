@@ -6,6 +6,15 @@ namespace DAL.Repository.Impl
 {
     internal class AlbumRepository : IAlbumRepository
     {
+        public void CreateAlbum(Album album)
+        {
+            using (var db = new DBConnection())
+            {
+                db.Albums.Add(album);
+                db.SaveChanges();
+            }
+        }
+
         public List<Album> GetAllAlbums()
         {
             try
@@ -21,28 +30,25 @@ namespace DAL.Repository.Impl
                 throw;
             }
         }
-
-        public void CreateAlbum(Album album)
+        public Album GetAlbumById(int? id)
         {
             using (var db = new DBConnection())
             {
-                db.Albums.Add(album);
+                return db.Albums.Include("Genre").Include("Artist").Where(x => x.id == id).Single();
+            }
+        }
+
+        public void Update(Album oldAlbum, Album newAlbum)
+        {
+            using (var db = new DBConnection())
+            {
+                db.Albums.Remove(oldAlbum);
+                db.Albums.Add(newAlbum);
                 db.SaveChanges();
             }
         }
 
-        public void Update(Album album)
-        {
-            throw new NotImplementedException();
-        }
-
         public void Delete(Album album)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public Album GetAlbumById(int id)
         {
             throw new NotImplementedException();
         }

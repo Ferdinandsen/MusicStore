@@ -244,6 +244,7 @@
     <Content Include="Views\Artist\CreateArtist.cshtml" />
     <Content Include="Views\Genre\Index.cshtml" />
     <Content Include="Views\Genre\CreateGenre.cshtml" />
+    <Content Include="Views\Album\UpdateAlbum.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

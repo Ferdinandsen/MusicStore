@@ -6,12 +6,12 @@ namespace DAL.Repository
     {
         List<Album> GetAllAlbums();
 
-        Album GetAlbumById(int id);
-
         void CreateAlbum(Album album);
 
-        void Update(Album album);
+        void Update(Album oldAlbum, Album newAlbum);
 
         void Delete(Album album);
+
+        Album GetAlbumById(int? id);
     }
 }

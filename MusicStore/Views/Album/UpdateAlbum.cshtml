@@ -1,0 +1,26 @@
+﻿@model MusicStore.Models.AlbumViewModels
+@{
+    ViewBag.Title = "UpdateAlbum";
+}
+
+<h2>UpdateAlbum</h2>
+
+<form method="post" action="UpdateAlbum">
+    <div class="row">
+
+        <div class="col-md-2">
+            Album Title:
+            <p />
+            Album Price:
+            <p />
+            Album release date:
+
+        </div>
+        <div class="col-md-6">
+            <input type="text" value="@Model.GetSelectedAlbum.title" />
+            <br />
+            <input type="text" value="@Model.GetSelectedAlbum.price" />
+            <br />
+            <input type="text" value="@Model.GetSelectedAlbum.releaseDate" />
+        </div>
+</form>
