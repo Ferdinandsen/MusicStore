@@ -1,5 +1,4 @@
 ﻿using DAL.Repository;
-using DAL.Repository.GenreRepo;
 using DAL.Repository.Impl;
 using System;
 using System.Collections.Generic;

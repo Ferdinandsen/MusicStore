@@ -1,4 +1,5 @@
-﻿@model MusicStore.Models.AlbumViewModels
+﻿@using System.Diagnostics
+@model MusicStore.Models.AlbumViewModels
 @{
     ViewBag.Title = "Index";
 }
@@ -9,6 +10,7 @@
 <div class="row">
     <div class="col-md-3">
 
+        @* ReSharper disable once Html.Obsolete *@
         <table border="1">
 
             <tr>
@@ -19,7 +21,7 @@
 
                 @foreach (DAL.Album album in Model.AllAlbums)
                 {
-                    <tr onclick="window.location.href = '@Url.Action("Index", "Album", new {id = album.id})'">
+                    <tr onclick="window.location.href = '@Url.Action("Index", "Album", new {album.id})'">
                         @if (Model.GetSelectedAlbum != null && Model.GetSelectedAlbum.id == album.id)
                         {
                             <td style="background-color:green">
@@ -56,33 +58,37 @@
 
     @if (Model.GetSelectedAlbum != null)
     {
-        <div class="col-md-3" style="border-color:black;border:solid">
-            Album title: @Model.GetSelectedAlbum.title
-            <br />
-            Album price: @Model.GetSelectedAlbum.price
-            <br />
-            Album release date: @Model.GetSelectedAlbum.releaseDate
-            <br />
-            Genre: @Model.GetSelectedAlbum.Genre.name
-            <br />
-            Artist: @Model.GetSelectedAlbum.Artist.name
-            <br />
-            Album URL: <a href="@Model.GetSelectedAlbum.albumArtURL"> LINK </a>
-            <br />
-            Song sample: <a href="@Model.GetSelectedAlbum.songSampleURL"> LINK </a>
-            <br />
+    <div class="col-md-3" style="border-color:black;border:solid">
+        Album title: 
+        @{
+            Debug.Assert(Model.GetSelectedAlbum != null, "Model.GetSelectedAlbum = null");
+        }
+        @Model.GetSelectedAlbum.title
+        <br />
+        Album price: @Model.GetSelectedAlbum.price
+        <br />
+        Album release date: @Model.GetSelectedAlbum.releaseDate
+        <br />
+        Genre: @Model.GetSelectedAlbum.Genre.name
+        <br />
+        Artist: @Model.GetSelectedAlbum.Artist.name
+        <br />
+        Album URL: <a href="@Model.GetSelectedAlbum.albumArtURL"> LINK </a>
+        <br />
+        Song sample: <a href="@Model.GetSelectedAlbum.songSampleURL"> LINK </a>
+        <br />
         </div>
     }
-
-</div>
+        
+    </div>
 
 @*@if (Modeddddl.AllAlbums != null)
-    {
-    @Model.GetSelectedAlbum.title <br />
-    @Model.GetSelectedAlbum.price <br />
-        @Model.GetSelectedAlbum.genreId <br />
-        @Model.GetSelectedAlbum.artistId <br />
-    }*@
+{
+@Model.GetSelectedAlbum.title <br />
+@Model.GetSelectedAlbum.price <br />
+    @Model.GetSelectedAlbum.genreId <br />
+    @Model.GetSelectedAlbum.artistId <br />
+}*@
 
 @*@if (Modeddddl.AllAlbums != null)
     {

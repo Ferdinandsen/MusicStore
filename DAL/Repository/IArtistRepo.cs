@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace DAL.Repository
 {
@@ -10,5 +6,5 @@ namespace DAL.Repository
     {
              List<Artist> GetAllArtist();
              void CreateArtist(Artist artist);
-                }
+    }
 }
