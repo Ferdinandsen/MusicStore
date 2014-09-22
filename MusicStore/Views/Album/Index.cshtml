@@ -17,7 +17,6 @@
             </tr>
             <tbody>
 
-
                 @foreach (DAL.Album album in Model.AllAlbums)
                 {
                     <tr onclick="window.location.href = '@Url.Action("Index", "Album", new {id = album.id})'">
@@ -46,33 +45,51 @@
         <form action="/Album/CreateAlbum">
             <input type="submit" value="Add" />
         </form>
+        @if (Model.GetSelectedAlbum != null)
+        {
+            <form action="/Album/UpdateAlbum">
+                <input type="hidden" name="id" value="@Model.GetSelectedAlbum.id" />
+                <input type="submit" value="Edit" />
+            </form>
+        }
     </div>
-    <div class="col-md-3" style="border-color:black;border:solid">
-        Album title: @Model.GetSelectedAlbum.title
-        <br />
-        Album price: @Model.GetSelectedAlbum.price
-        <br />
-        Album release date: @Model.GetSelectedAlbum.releaseDate
-        <br />
-        Genre: @Model.GetSelectedAlbum.Genre.name
-        <br />
-        Artist: @Model.GetSelectedAlbum.Artist.name
-        <br />
-        Album URL: <a href="@Model.GetSelectedAlbum.albumArtURL"> LINK </a>
-        <br />
-        Song sample: <a href="@Model.GetSelectedAlbum.songSampleURL"> LINK </a>
-        <br />
 
-        
-    </div>
+    @if (Model.GetSelectedAlbum != null)
+    {
+        <div class="col-md-3" style="border-color:black;border:solid">
+            Album title: @Model.GetSelectedAlbum.title
+            <br />
+            Album price: @Model.GetSelectedAlbum.price
+            <br />
+            Album release date: @Model.GetSelectedAlbum.releaseDate
+            <br />
+            Genre: @Model.GetSelectedAlbum.Genre.name
+            <br />
+            Artist: @Model.GetSelectedAlbum.Artist.name
+            <br />
+            Album URL: <a href="@Model.GetSelectedAlbum.albumArtURL"> LINK </a>
+            <br />
+            Song sample: <a href="@Model.GetSelectedAlbum.songSampleURL"> LINK </a>
+            <br />
+        </div>
+    }
+
 </div>
 
 @*@if (Modeddddl.AllAlbums != null)
-{
-@Model.GetSelectedAlbum.title <br />
-@Model.GetSelectedAlbum.price <br />
-    @Model.GetSelectedAlbum.genreId <br />
-    @Model.GetSelectedAlbum.artistId <br />
-}*@
+    {
+    @Model.GetSelectedAlbum.title <br />
+    @Model.GetSelectedAlbum.price <br />
+        @Model.GetSelectedAlbum.genreId <br />
+        @Model.GetSelectedAlbum.artistId <br />
+    }*@
+
+@*@if (Modeddddl.AllAlbums != null)
+    {
+    @Model.GetSelectedAlbum.title <br />
+    @Model.GetSelectedAlbum.price <br />
+        @Model.GetSelectedAlbum.genreId <br />
+        @Model.GetSelectedAlbum.artistId <br />
+    }*@
 
 

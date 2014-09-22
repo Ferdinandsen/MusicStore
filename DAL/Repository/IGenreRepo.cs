@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository.GenreRepo
 {
-   public interface IGenreRepo
+    public interface IGenreRepo
     {
         List<Genre> GetAllGenres();
-       void CreateGenre(Genre genre);
+        void CreateGenre(Genre genre);
     }
 }
