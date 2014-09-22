@@ -10,6 +10,5 @@ namespace DAL.Repository
     {
              List<Artist> GetAllArtist();
              void CreateArtist(Artist artist);
-             List<Artist> GetAllArtist2();
-    }
+                }
 }
