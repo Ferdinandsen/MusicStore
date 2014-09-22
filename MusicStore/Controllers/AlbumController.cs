@@ -1,51 +1,58 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using DAL;
-using DAL.Repository;
-using DAL.Repository.Impl;
+﻿using DAL;
 using MusicStore.Models;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace MusicStore.Controllers
 {
     public class AlbumController : Controller
     {
-        DataAccessLayerfacade facade;
-        AlbumViewModels model;
+        private DataAccessLayerfacade _facade;
+        private AlbumViewModels _model;
 
         // GET: Album
         public ActionResult Index(int? id)
         {
-            facade = new DataAccessLayerfacade();
-            model = new AlbumViewModels();
-         
-            if (facade.GetAlbumRep().GetAllAlbums().Count == 0)
+            _facade = new DataAccessLayerfacade();
+            _model = new AlbumViewModels();
+
+            if (_facade.GetAlbumRep().GetAllAlbums().Count == 0)
             {
-                model.AllAlbums = facade.GetAlbumRep().GetAllAlbums();
+                _model.AllAlbums = _facade.GetAlbumRep().GetAllAlbums();
             }
             else
             {
-                model.AllAlbums = facade.GetAlbumRep().GetAllAlbums();
-                model.GetSelectedAlbum = id != null ? model.AllAlbums.FirstOrDefault(a => a.id == id) : model.AllAlbums.FirstOrDefault();
+                _model.AllAlbums = _facade.GetAlbumRep().GetAllAlbums();
+                _model.GetSelectedAlbum = id != null
+                    ? _model.AllAlbums.FirstOrDefault(a => a.id == id)
+                    : _model.AllAlbums.FirstOrDefault();
             }
-            return View(model);
+            return View(_model);
         }
 
         public ActionResult CreateAlbum()
         {
-            facade = new DataAccessLayerfacade();
-            AlbumViewModels model = new AlbumViewModels();
-            model.AllArtists = facade.GetArtistRep().GetAllArtist();
+            _facade = new DataAccessLayerfacade();
+            var model = new AlbumViewModels();
+            model.AllArtists = _facade.GetArtistRep().GetAllArtist();
             return View(model);
         }
 
         [HttpPost]
         public ActionResult AddAlbum(AlbumModel model)
         {
-            facade = new DataAccessLayerfacade();
-            facade.GetAlbumRep().CreateAlbum(new Album { title = model.Title, artistId = model.Artist, price = model.Price, genreId = model.Genre, albumArtURL = model.AlbumArtUrl, songSampleURL = model.SongSampleUrl, releaseDate = model.ReleaseDate });
+            _facade = new DataAccessLayerfacade();
+            _facade.GetAlbumRep()
+                .CreateAlbum(new Album
+                {
+                    title = model.Title,
+                    artistId = model.Artist,
+                    price = model.Price,
+                    genreId = model.Genre,
+                    albumArtURL = model.AlbumArtUrl,
+                    songSampleURL = model.SongSampleUrl,
+                    releaseDate = model.ReleaseDate
+                });
             return RedirectToAction("Index");
         }
     }
