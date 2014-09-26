@@ -172,7 +172,6 @@
     <Compile Include="Models\AlbumViewModels.cs" />
     <Compile Include="Models\ArtistModel.cs" />
     <Compile Include="Models\ArtistViewModel.cs" />
-    <Compile Include="Models\CreateAlbumViewModel.cs" />
     <Compile Include="Models\GenreModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -245,9 +244,11 @@
     <Content Include="Views\Genre\Index.cshtml" />
     <Content Include="Views\Genre\CreateGenre.cshtml" />
     <Content Include="Views\Album\UpdateAlbum.cshtml" />
+    <Content Include="Views\Album\DeleteAlbum.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

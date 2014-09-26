@@ -15,13 +15,15 @@
     <input type="text" name="releaseDate" placeholder="Insert release date" />
     <br />
 
-    <input type="text" name="genre" placeholder="Insert genre" />
+    <select name="Genre">
+        @foreach (DAL.Genre genre in Model.AllGenres)
+        {
+            <option value="@genre.id">@genre.name</option>
+        }
+    </select>
     <br />
 
-    <input type="text" name="artist" placeholder="Insert Artist" />
-    <br />
-
-    <select name="ArtistDropDown">
+    <select name="Artist">
         @foreach (DAL.Artist artist in Model.AllArtists)
         {
             <option value="@artist.id">@artist.name</option>

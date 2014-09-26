@@ -1,0 +1,22 @@
+﻿@model MusicStore.Models.AlbumViewModels
+
+@{
+    ViewBag.Title = "DeleteAlbum";
+}
+
+<h2>DeleteAlbum</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>@Model.GetSelectedAlbum.title</h4>
+    <hr />
+   <dl class="dl-horizontal"></dl>
+
+    <form method="POST" action="DeleteAlbum">
+        <input type="hidden" value="@Model.GetSelectedAlbum.id" name="id"/>
+        <div class="form-actions no-color" >
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            @Html.ActionLink("Return", "Index")
+            </div>
+    </form>
+</div>

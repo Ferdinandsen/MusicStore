@@ -6,6 +6,16 @@
 
 <h2>Index</h2>
 
+<div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle"
+            data-toggle="dropdown" value="test"><span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+        <li><a href="#">Table</a></li>
+        <li><a href="#">List</a></li>
+    </ul>
+</div>
+
 
 <div class="row">
     <div class="col-md-3">
@@ -53,49 +63,35 @@
                 <input type="hidden" name="id" value="@Model.GetSelectedAlbum.id" />
                 <input type="submit" value="Edit" />
             </form>
+            <form action="/Album/DeleteAlbum">
+                <input type="hidden" name="id" value="@Model.GetSelectedAlbum.id" />
+                <input type="submit" value="Delete" />
+            </form>
         }
     </div>
 
     @if (Model.GetSelectedAlbum != null)
     {
-    <div class="col-md-3" style="border-color:black;border:solid">
-        Album title: 
-        @{
-            Debug.Assert(Model.GetSelectedAlbum != null, "Model.GetSelectedAlbum = null");
-        }
-        @Model.GetSelectedAlbum.title
-        <br />
-        Album price: @Model.GetSelectedAlbum.price
-        <br />
-        Album release date: @Model.GetSelectedAlbum.releaseDate
-        <br />
-        Genre: @Model.GetSelectedAlbum.Genre.name
-        <br />
-        Artist: @Model.GetSelectedAlbum.Artist.name
-        <br />
-        Album URL: <a href="@Model.GetSelectedAlbum.albumArtURL"> LINK </a>
-        <br />
-        Song sample: <a href="@Model.GetSelectedAlbum.songSampleURL"> LINK </a>
-        <br />
+        <div class="col-md-3" style="border-color:black;border:solid">
+            Album title:
+            @{
+        Debug.Assert(Model.GetSelectedAlbum != null, "Model.GetSelectedAlbum = null");
+            }
+            @Model.GetSelectedAlbum.title
+            <br />
+            Album price: @Model.GetSelectedAlbum.price
+            <br />
+            Album release date: @Model.GetSelectedAlbum.releaseDate
+            <br />
+            Genre: @Model.GetSelectedAlbum.Genre.name
+            <br />
+            Artist: @Model.GetSelectedAlbum.Artist.name
+            <br />
+            Album URL: <a href="@Model.GetSelectedAlbum.albumArtURL"> LINK </a>
+            <br />
+            Song sample: <a href="@Model.GetSelectedAlbum.songSampleURL"> LINK </a>
+            <br />
         </div>
     }
-        
-    </div>
-
-@*@if (Modeddddl.AllAlbums != null)
-{
-@Model.GetSelectedAlbum.title <br />
-@Model.GetSelectedAlbum.price <br />
-    @Model.GetSelectedAlbum.genreId <br />
-    @Model.GetSelectedAlbum.artistId <br />
-}*@
-
-@*@if (Modeddddl.AllAlbums != null)
-    {
-    @Model.GetSelectedAlbum.title <br />
-    @Model.GetSelectedAlbum.price <br />
-        @Model.GetSelectedAlbum.genreId <br />
-        @Model.GetSelectedAlbum.artistId <br />
-    }*@
-
+</div>
 

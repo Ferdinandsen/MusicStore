@@ -20,5 +20,14 @@ namespace DAL.Repository.Impl
                 db.SaveChanges();
             }
         }
+        
+        public Genre GetGenreById(int id)
+        {
+            using (var db = new DBConnection())
+            {
+                return db.Genres.FirstOrDefault(x => x.id == id);
+            }
+            
+        }
     }
 }

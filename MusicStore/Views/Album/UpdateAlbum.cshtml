@@ -17,10 +17,24 @@
 
         </div>
         <div class="col-md-6">
-            <input type="text" value="@Model.GetSelectedAlbum.title" />
+            <input type="text" value="@Model.GetSelectedAlbum.title" name="title"/>
             <br />
-            <input type="text" value="@Model.GetSelectedAlbum.price" />
+            <input type="text" value="@Model.GetSelectedAlbum.price" name="price"/>
             <br />
-            <input type="text" value="@Model.GetSelectedAlbum.releaseDate" />
+            <input type="text" value="@Model.GetSelectedAlbum.releaseDate" name="releaseDate"/>
+            <br/>
+            <input type="text" value="@Model.GetSelectedAlbum.songSampleURL" name="songSampleURL" />
+            <br />
+            <input type="text" value="@Model.GetSelectedAlbum.albumArtURL" name="albumArtURL" />
+            <br />
+            <input type="text" value="@Model.GetSelectedAlbum.genreId" name="genreId" />
+            <br />
+            <input type="text" value="@Model.GetSelectedAlbum.artistId" name="artistId" />
+            <br />
+            <input type="text" value="@Model.GetSelectedAlbum.id" name="id" />
+            <br />
+           
         </div>
+    </div>
+    <input type="submit" value="Update" />
 </form>

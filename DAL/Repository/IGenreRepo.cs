@@ -6,5 +6,6 @@ namespace DAL.Repository
     {
         List<Genre> GetAllGenres();
         void CreateGenre(Genre genre);
+        Genre GetGenreById(int id);
     }
 }
