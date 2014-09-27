@@ -8,7 +8,7 @@ namespace DAL.Repository
         Artist GetArtistById(int? id);
         void CreateArtist(Artist artist);
 
-        void UpdateArtist(Artist oldArtist, Artist newArtist);
+        void UpdateArtist(Artist artist);
 
         void DeleteArtist(Artist artist);
     }

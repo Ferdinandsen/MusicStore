@@ -5,7 +5,8 @@ namespace DAL.Repository
     public interface IGenreRepo
     {
         List<Genre> GetAllGenres();
+        Genre GetGenreById(int? id);
         void CreateGenre(Genre genre);
-        Genre GetGenreById(int id);
+        void UpdateGenre(Genre genre);
     }
 }

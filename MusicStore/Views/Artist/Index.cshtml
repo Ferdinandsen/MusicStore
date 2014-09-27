@@ -14,18 +14,43 @@
     <tbody>
         @foreach (DAL.Artist artist in Model.AllArtists)
         {
-            <tr>
-                <td>
-                    @artist.id
-                </td>
-                <td>
-                    @artist.name
-                </td>
+            <tr onclick="window.location.href = '@Url.Action("Index", "Artist", new {artist.id})'">
+                @if (Model.GetSelectedArtist != null && Model.GetSelectedArtist.id == artist.id)
+                {
+                    <td style="background-color:green">
+                        @artist.id
+                    </td>
+                    <td style="background-color:green">
+                        @artist.name
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        @artist.id
+                    </td>
+                    <td>
+                        @artist.name
+                    </td>
+                }
             </tr>
         }
     </tbody>
 </table>
 
-<form action="/Artist/CreateArtist">
-    <input type="submit" value="Add" />
-</form>
+
+@if (Model.GetSelectedArtist != null)
+{
+    <form action="/Artist/CreateArtist">
+        <input type="submit" value="Add" />
+    </form>
+    <form action="/Artist/UpdateArtist">
+        <input type="hidden" value="@Model.GetSelectedArtist.id" name="id"/>
+        <input type="submit" value="Edit"/>
+    </form>
+    <form action="/Artist/DeleteArtist">
+        <input type="hidden" name="id" value="@Model.GetSelectedArtist.id"/>
+        <input type="submit" value="Delete" />
+    </form>
+    
+}

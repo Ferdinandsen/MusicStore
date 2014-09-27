@@ -173,6 +173,7 @@
     <Compile Include="Models\ArtistModel.cs" />
     <Compile Include="Models\ArtistViewModel.cs" />
     <Compile Include="Models\GenreModel.cs" />
+    <Compile Include="Models\GenreViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -245,6 +246,8 @@
     <Content Include="Views\Genre\CreateGenre.cshtml" />
     <Content Include="Views\Album\UpdateAlbum.cshtml" />
     <Content Include="Views\Album\DeleteAlbum.cshtml" />
+    <Content Include="Views\Artist\UpdateArtist.cshtml" />
+    <Content Include="Views\Genre\UpdateGenre.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace DAL.Repository.Impl
@@ -47,12 +48,11 @@ namespace DAL.Repository.Impl
             }
         }
 
-        public void UpdateArtist(Artist oldArtist, Artist newArtist)
+        public void UpdateArtist(Artist artist)
         {
             using (var db = new DBConnection())
             {
-                db.Artists.Remove(oldArtist);
-                db.Artists.Add(newArtist);
+                db.Entry(artist).State = EntityState.Modified;
                 db.SaveChanges();
             }
         }

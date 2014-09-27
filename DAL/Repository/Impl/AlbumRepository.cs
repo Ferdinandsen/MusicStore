@@ -53,11 +53,6 @@ namespace DAL.Repository.Impl
             {
                 db.Entry(album).State = EntityState.Modified;
                 db.SaveChanges();
-
-                //Album test = db.Albums.FirstOrDefault(x => x.id == album.id);
-                //db.Albums.Remove(test);
-                //db.Albums.Add(album);
-                //db.SaveChanges();
             }
         }
 
@@ -65,7 +60,7 @@ namespace DAL.Repository.Impl
         {
             using (var db = new DBConnection())
             {
-                db.Albums.Remove(db.Albums.FirstOrDefault(x=> x.id == id));
+                db.Albums.Remove(db.Albums.FirstOrDefault(x => x.id == id));
                 db.SaveChanges();
             }
         }

@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace DAL.Repository.Impl
 {
@@ -20,14 +22,21 @@ namespace DAL.Repository.Impl
                 db.SaveChanges();
             }
         }
-        
-        public Genre GetGenreById(int id)
+
+        public Genre GetGenreById(int? id)
         {
             using (var db = new DBConnection())
             {
                 return db.Genres.FirstOrDefault(x => x.id == id);
             }
-            
+        }
+        public void UpdateGenre(Genre genre)
+        {
+           using (var db = new DBConnection())
+            {
+                db.Entry(genre).State = EntityState.Modified;
+                db.SaveChanges();
+            }
         }
     }
 }

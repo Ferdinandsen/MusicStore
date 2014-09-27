@@ -10,23 +10,23 @@ namespace MusicStore.Controllers
 {
     public class ArtistController : Controller
     {
-        DataAccessLayerfacade facade;
-        ArtistViewModel model;
+        DataAccessLayerfacade _facade;
+        ArtistViewModel _model;
         // GET: Artist
         public ActionResult Index(int? id)
         {
-            facade = new DataAccessLayerfacade();
-            model = new ArtistViewModel();
-            if (facade.GetArtistRep().GetAllArtist().Count == 0)
+            _facade = new DataAccessLayerfacade();
+            _model = new ArtistViewModel();
+            if (_facade.GetArtistRep().GetAllArtist().Count == 0)
             {
-                model.AllArtists = facade.GetArtistRep().GetAllArtist();
+                _model.AllArtists = _facade.GetArtistRep().GetAllArtist();
             }
             else
             {
-                model.AllArtists = facade.GetArtistRep().GetAllArtist();
-                model.GetSelectedArtist = id != null ? model.AllArtists.FirstOrDefault(a => a.id == id) : model.AllArtists.FirstOrDefault();
+                _model.AllArtists = _facade.GetArtistRep().GetAllArtist();
+                _model.GetSelectedArtist = id != null ? _model.AllArtists.FirstOrDefault(a => a.id == id) : _model.AllArtists.FirstOrDefault();
             }
-            return View(model);
+            return View(_model);
         }
 
         public ActionResult CreateArtist()
@@ -37,8 +37,24 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult CreateArtist(ArtistModel model)
         {
-            facade = new DataAccessLayerfacade();
-            facade.GetArtistRep().CreateArtist(new Artist {name = model.Name });
+            _facade = new DataAccessLayerfacade();
+            _facade.GetArtistRep().CreateArtist(new Artist { name = model.Name });
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult UpdateArtist(int? id)
+        {
+            _facade = new DataAccessLayerfacade();
+            _model = new ArtistViewModel();
+            _model.GetSelectedArtist = _facade.GetArtistRep().GetArtistById(id);
+            return View(_model);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateArtist(Artist artist)
+        {
+            _facade = new DataAccessLayerfacade();
+            _facade.GetArtistRep().UpdateArtist(artist);
             return RedirectToAction("Index");
         }
     }

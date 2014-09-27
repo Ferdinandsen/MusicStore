@@ -63,6 +63,7 @@ namespace MusicStore.Controllers
             return View(_model);
         }
 
+       
         [HttpPost]
         public ActionResult UpdateAlbum(Album model)
         {
