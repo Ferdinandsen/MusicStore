@@ -248,6 +248,8 @@
     <Content Include="Views\Album\DeleteAlbum.cshtml" />
     <Content Include="Views\Artist\UpdateArtist.cshtml" />
     <Content Include="Views\Genre\UpdateGenre.cshtml" />
+    <Content Include="Views\Artist\DeleteArtist.cshtml" />
+    <Content Include="Views\Genre\DeleteGenre.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

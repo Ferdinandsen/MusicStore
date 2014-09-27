@@ -10,6 +10,6 @@ namespace DAL.Repository
 
         void UpdateArtist(Artist artist);
 
-        void DeleteArtist(Artist artist);
+        void DeleteArtist(int id);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -35,6 +36,15 @@ namespace DAL.Repository.Impl
            using (var db = new DBConnection())
             {
                 db.Entry(genre).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+        }
+
+        public void DeleteGenre(int id)
+        {
+            using (var db = new DBConnection())
+            {
+                db.Genres.Remove(db.Genres.FirstOrDefault(x=>x.id == id));
                 db.SaveChanges();
             }
         }

@@ -8,5 +8,6 @@ namespace DAL.Repository
         Genre GetGenreById(int? id);
         void CreateGenre(Genre genre);
         void UpdateGenre(Genre genre);
+        void DeleteGenre(int id);
     }
 }

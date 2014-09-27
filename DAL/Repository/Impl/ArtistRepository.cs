@@ -57,14 +57,13 @@ namespace DAL.Repository.Impl
             }
         }
 
-        public void DeleteArtist(Artist artist)
+        public void DeleteArtist(int id)
         {
             using (var db = new DBConnection())
             {
-                db.Artists.Remove(artist);
+                db.Artists.Remove(db.Artists.FirstOrDefault(x => x.id == id));
                 db.SaveChanges();
             }
-
         }
     }
 }

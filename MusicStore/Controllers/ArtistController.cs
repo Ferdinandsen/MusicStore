@@ -57,5 +57,22 @@ namespace MusicStore.Controllers
             _facade.GetArtistRep().UpdateArtist(artist);
             return RedirectToAction("Index");
         }
+
+        
+        public ActionResult DeleteArtist(int? id)
+        {
+            _facade = new DataAccessLayerfacade();
+            _model = new ArtistViewModel();
+            _model.GetSelectedArtist = _facade.GetArtistRep().GetArtistById(id);
+            return View(_model);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteArtist(int id)
+        {
+            _facade = new DataAccessLayerfacade();
+            _facade.GetArtistRep().DeleteArtist(id);
+            return RedirectToAction("Index");
+        }
     }
 }
