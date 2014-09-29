@@ -38,7 +38,7 @@ namespace MusicStore.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddAlbum(AlbumModel model)
+        public ActionResult CreateAlbum(AlbumModel model)
         {
             _facade = new DataAccessLayerfacade();
             _facade.GetAlbumRep()
@@ -63,7 +63,6 @@ namespace MusicStore.Controllers
             return View(_model);
         }
 
-       
         [HttpPost]
         public ActionResult UpdateAlbum(Album model)
         {

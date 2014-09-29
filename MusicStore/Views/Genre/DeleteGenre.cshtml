@@ -13,12 +13,12 @@
     <dl class="dl-horizontal"></dl>
 
 
-    <form method="POST" action="DeleteGenre">
+    <form action="DeleteGenre" method="POST">
         <div class="form-actions no-color">
             <input type="hidden" value="@Model.GetSelectedGenre.id" name="id" />
-            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <input type="submit" value="Delete" class="btn btn-default" /> 
+            |
             @Html.ActionLink("Return", "Index")
         </div>
     </form>
-    }
 </div>

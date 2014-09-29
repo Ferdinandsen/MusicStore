@@ -1,9 +1,6 @@
 ﻿using DAL;
 using MusicStore.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MusicStore.Controllers
@@ -11,22 +8,22 @@ namespace MusicStore.Controllers
     public class GenreController : Controller
     {
         DataAccessLayerfacade _facade;
-        private GenreViewModel _model;
+        GenreViewModel _model;
 
         public ActionResult Index(int? id)
         {
             _facade = new DataAccessLayerfacade();
-            var model = new GenreViewModel();
+            _model = new GenreViewModel();
             if (_facade.GetGenreRep().GetAllGenres().Count == 0)
             {
-                model.AllGenres = _facade.GetGenreRep().GetAllGenres();
+                _model.AllGenres = _facade.GetGenreRep().GetAllGenres();
             }
             else
             {
-                model.AllGenres = _facade.GetGenreRep().GetAllGenres();
-                model.GetSelectedGenre = id != null ? model.AllGenres.FirstOrDefault(a => a.id == id) : model.AllGenres.FirstOrDefault();
+                _model.AllGenres = _facade.GetGenreRep().GetAllGenres();
+                _model.GetSelectedGenre = id != null ? _model.AllGenres.FirstOrDefault(a => a.id == id) : _model.AllGenres.FirstOrDefault();
             }
-            return View(model);
+            return View(_model);
         }
         public ActionResult CreateGenre()
         {

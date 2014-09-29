@@ -12,10 +12,11 @@
     <hr />
    <dl class="dl-horizontal"></dl>
 
-    <form method="POST" action="DeleteAlbum">
+    <form action="DeleteAlbum" method="POST">
         <input type="hidden" value="@Model.GetSelectedAlbum.id" name="id"/>
         <div class="form-actions no-color" >
             <input type="submit" value="Delete" class="btn btn-danger" />
+            |
             @Html.ActionLink("Return", "Index")
             </div>
     </form>

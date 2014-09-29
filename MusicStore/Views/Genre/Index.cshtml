@@ -43,9 +43,11 @@
 </form>
 
 <form action="/Genre/UpdateGenre">
+    <input type="hidden" value="@Model.GetSelectedGenre.id" name="id"/>
     <input type="submit" value="Update"/> 
 </form>
 <form action="/Genre/DeleteGenre">
+    <input type="hidden" value="@Model.GetSelectedGenre.id" name="id" />
     <input type="submit" value="Delete"/>
 </form>
 
