@@ -58,10 +58,10 @@ namespace MusicStore.Controllers
 
         public ActionResult UpdateAlbum(int? id)
         {
-            facade = new DataAccessLayerfacade();
-            model = new AlbumViewModels();
-            model.GetSelectedAlbum = facade.GetAlbumRep().GetAlbumById(id);
-            return View(model);
+            _facade = new DataAccessLayerfacade();
+            _model = new AlbumViewModels();
+            _model.GetSelectedAlbum = _facade.GetAlbumRep().GetAlbumById(id);
+            return View(_model);
         }
     }
 }

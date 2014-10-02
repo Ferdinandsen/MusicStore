@@ -1,101 +1,186 @@
 ﻿@using System.Diagnostics
+@using DAL
 @model MusicStore.Models.AlbumViewModels
 @{
     ViewBag.Title = "Index";
 }
+<style type="text/css">.rating-input { }</style>
 
 <h2>Index</h2>
 
 
 <div class="row">
-    <div class="col-md-3">
-
-        @* ReSharper disable once Html.Obsolete *@
-        <table border="1">
-
-            <tr>
-                <th>ID</th>
-                <th>Album name</th>
-            </tr>
-            <tbody>
-
-                @foreach (DAL.Album album in Model.AllAlbums)
-                {
-                    <tr onclick="window.location.href = '@Url.Action("Index", "Album", new {album.id})'">
-                        @if (Model.GetSelectedAlbum != null && Model.GetSelectedAlbum.id == album.id)
-                        {
-                            <td style="background-color:green">
-                                @album.id
-                            </td>
-                            <td style="background-color:green">
-                                @album.title
-                            </td>
-                        }
-                        else
-                        {
-                            <td>
-                                @album.id
-                            </td>
-                            <td>
-                                @album.title
-                            </td>
-                        }
-                    </tr>
-                }
-            </tbody>
-        </table>
-        <form action="/Album/CreateAlbum">
-            <input type="submit" value="Add" />
-        </form>
-        @if (Model.GetSelectedAlbum != null)
-        {
-            <form action="/Album/UpdateAlbum">
-                <input type="hidden" name="id" value="@Model.GetSelectedAlbum.id" />
-                <input type="submit" value="Edit" />
-            </form>
-        }
+    <div class="container">
+        <div class="row">
+            <h2>Carousel Reviews</h2>
+        </div>
     </div>
+    <div class=" broun-block">
+        <div class="container">
+            <div class="row">
+                <div id="carousel-reviews" class="carousel slide" data-ride="carousel">
 
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="col-md-4 col-sm-6">
+                                @foreach (var album in Model.AllAlbums)
+                                {
+                                    <div class="block-text rel zmin">
+                                        <a onclick="window.location.href" href="#">@album.title</a>
+                                        <div class="mark">
+                                            My rating: <span class="rating-input">
+                                                           <span data-value="0" class="glyphicon glyphicon-star"></span>
+                                                           <span data-value="1" class="glyphicon glyphicon-star"></span>
+                                                           <span data-value="2" class="glyphicon glyphicon-star"></span>
+                                                           <span data-value="3" class="glyphicon glyphicon-star"></span>
+                                                           <span data-value="4" class="glyphicon glyphicon-star-empty"></span>
+                                                           <span data-value="5" class="glyphicon glyphicon-star-empty"></span>
+                                                       </span>
+                                        </div>
+                                        <p> @album.albumArtURL</p>
+                                        <ins class="ab zmin sprite sprite block"></ins>
+                                    </div>
+                                }
+                                <a class="left carousel-control" href="#carousel-reviews" role="button" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                </a>
+                                <a class="right carousel-control" href="#carousel-reviews" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                @*<div class="col-md-3">*@
+
+                @* ReSharper disable once Html.Obsolete *@
+                @*<table border="1">
+
+                            <tr>
+                                <th>ID</th>
+                                <th>Album name</th>
+                            </tr>
+                            <tbody>
+
+                                @foreach (DAL.Album album in Model.AllAlbums)
+                                {
+                                    <tr onclick="window.location.href = '@Url.Action("Index", "Album", new {album.id})'">
+                                        @if (Model.GetSelectedAlbum != null && Model.GetSelectedAlbum.id == album.id)
+                                        {
+                                            <td style="background-color:green">
+                                                @album.id
+                                            </td>
+                                            <td style="background-color:green">
+                                                @album.title
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td>
+                                                @album.id
+                                            </td>
+                                            <td>
+                                                @album.title
+                                            </td>
+                                        }
+                                    </tr>
+                                }
+
+                                }
+                            </tbody>
+                        </table>
+                        <form action="/Album/CreateAlbum">
+                            <input type="submit" value="Add" />
+                        </form>
+                        @if (Model.GetSelectedAlbum != null)
+                        {
+                            <form action="/Album/UpdateAlbum">
+                                <input type="hidden" name="id" value="@Model.GetSelectedAlbum.id" />
+                                <input type="submit" value="Edit" />
+                            </form>
+                        }
+                    </div>
+
+                    @if (Model.GetSelectedAlbum != null)
+                    {
+                        <div class="col-md-3" style="border-color:black;border:solid">
+                            Album title:
+                            @{
+                        Debug.Assert(Model.GetSelectedAlbum != null, "Model.GetSelectedAlbum = null");
+                            }
+                            @Model.GetSelectedAlbum.title
+                            <br />
+                            Album price: @Model.GetSelectedAlbum.price
+                            <br />
+                            Album release date: @Model.GetSelectedAlbum.releaseDate
+                            <br />
+                            Genre: @Model.GetSelectedAlbum.Genre.name
+                            <br />
+                            Artist: @Model.GetSelectedAlbum.Artist.name
+                            <br />
+                            Album URL: <a href="@Model.GetSelectedAlbum.albumArtURL"> LINK </a>
+                            <br />
+                            Song sample: <a href="@Model.GetSelectedAlbum.songSampleURL"> LINK </a>
+                            <br />
+                        </div>
+                    }
+                *@
+            </div>
+
+
+            @*@if (Modeddddl.AllAlbums != null)
+                {
+                @Model.GetSelectedAlbum.title <br />
+                @Model.GetSelectedAlbum.price <br />
+                    @Model.GetSelectedAlbum.genreId <br />
+                    @Model.GetSelectedAlbum.artistId <br />
+                }*@
+
+            @*@if (Modeddddl.AllAlbums != null)
+                {
+                @Model.GetSelectedAlbum.title <br />
+                @Model.GetSelectedAlbum.price <br />
+                    @Model.GetSelectedAlbum.genreId <br />
+                    @Model.GetSelectedAlbum.artistId <br />
+                }*@
+        </div>
+    </div>
     @if (Model.GetSelectedAlbum != null)
     {
-    <div class="col-md-3" style="border-color:black;border:solid">
-        Album title: 
-        @{
-            Debug.Assert(Model.GetSelectedAlbum != null, "Model.GetSelectedAlbum = null");
-        }
-        @Model.GetSelectedAlbum.title
-        <br />
-        Album price: @Model.GetSelectedAlbum.price
-        <br />
-        Album release date: @Model.GetSelectedAlbum.releaseDate
-        <br />
-        Genre: @Model.GetSelectedAlbum.Genre.name
-        <br />
-        Artist: @Model.GetSelectedAlbum.Artist.name
-        <br />
-        Album URL: <a href="@Model.GetSelectedAlbum.albumArtURL"> LINK </a>
-        <br />
-        Song sample: <a href="@Model.GetSelectedAlbum.songSampleURL"> LINK </a>
-        <br />
+        <div class="col-md-3" style="border-color:black;border:solid">
+            Album title:
+            @{
+                Debug.Assert(Model.GetSelectedAlbum != null, "Model.GetSelectedAlbum = null");
+            }
+            @Model.GetSelectedAlbum.title
+            <br />
+            Album price: @Model.GetSelectedAlbum.price
+            <br />
+            Album release date: @Model.GetSelectedAlbum.releaseDate
+            <br />
+            Genre: @Model.GetSelectedAlbum.Genre.name
+            <br />
+            Artist: @Model.GetSelectedAlbum.Artist.name
+            <br />
+            Album URL: <a href="@Model.GetSelectedAlbum.albumArtURL"> LINK </a>
+            <br />
+            Song sample: <a href="@Model.GetSelectedAlbum.songSampleURL"> LINK </a>
+            <br />
         </div>
-    }
-        
-    </div>
-
-@*@if (Modeddddl.AllAlbums != null)
-{
-@Model.GetSelectedAlbum.title <br />
-@Model.GetSelectedAlbum.price <br />
-    @Model.GetSelectedAlbum.genreId <br />
-    @Model.GetSelectedAlbum.artistId <br />
-}*@
-
-@*@if (Modeddddl.AllAlbums != null)
+    <form action="/Album/CreateAlbum">
+        <input type="submit" value="Add" />
+    </form>
+         if (Model.GetSelectedAlbum != null)
     {
-    @Model.GetSelectedAlbum.title <br />
-    @Model.GetSelectedAlbum.price <br />
-        @Model.GetSelectedAlbum.genreId <br />
-        @Model.GetSelectedAlbum.artistId <br />
-    }*@
+        <form action="/Album/UpdateAlbum">
+            <input type="hidden" name="id" value="@Model.GetSelectedAlbum.id" />
+            <input type="submit" value="Edit" />
+        </form>
+    }
+    }
+</div>
+
 
 
