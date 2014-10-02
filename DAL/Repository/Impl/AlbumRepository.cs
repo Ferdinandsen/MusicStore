@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace DAL.Repository.Impl
@@ -19,7 +20,7 @@ namespace DAL.Repository.Impl
         {
             try
             {
-                using (DBConnection db = new DBConnection())
+                using (var db = new DBConnection())
                 {
                     return db.Albums.Include("Genre").Include("Artist").ToList();
                 }
@@ -32,25 +33,36 @@ namespace DAL.Repository.Impl
         }
         public Album GetAlbumById(int? id)
         {
-            using (var db = new DBConnection())
+            try
             {
-                return db.Albums.Include("Genre").Include("Artist").Where(x => x.id == id).Single();
+                using (var db = new DBConnection())
+                {
+                    return db.Albums.Include("Genre").Include("Artist").Single(x => x.id == id);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error in retrieving the specific artist" + e.Message);
+                throw;
             }
         }
 
-        public void Update(Album oldAlbum, Album newAlbum)
+        public void Update(Album album)
         {
             using (var db = new DBConnection())
             {
-                db.Albums.Remove(oldAlbum);
-                db.Albums.Add(newAlbum);
+                db.Entry(album).State = EntityState.Modified;
                 db.SaveChanges();
             }
         }
 
-        public void Delete(Album album)
+        public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (var db = new DBConnection())
+            {
+                db.Albums.Remove(db.Albums.FirstOrDefault(x => x.id == id));
+                db.SaveChanges();
+            }
         }
     }
 }

@@ -8,9 +8,9 @@ namespace DAL.Repository
 
         void CreateAlbum(Album album);
 
-        void Update(Album oldAlbum, Album newAlbum);
+        void Update(Album album);
 
-        void Delete(Album album);
+        void Delete(int id);
 
         Album GetAlbumById(int? id);
     }

@@ -12,5 +12,6 @@ namespace MusicStore.Models
         public Album GetSelectedAlbum { get; set; }
         public List<Artist> AllArtists { get; set; }
         public List<Genre> AllGenres { get; set; }
+
     }
 }

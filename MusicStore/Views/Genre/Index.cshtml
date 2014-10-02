@@ -1,4 +1,4 @@
-﻿@model MusicStore.Models.AlbumViewModels
+﻿@model MusicStore.Models.GenreViewModel
 @{
     ViewBag.Title = "Index";
 }
@@ -14,13 +14,25 @@
     <tbody>
         @foreach (DAL.Genre genre in Model.AllGenres)
         {
-            <tr>
-                <td>
-                    @genre.id
-                </td>
-                <td>
-                    @genre.name
-                </td>
+            <tr onclick="window.location.href = '@Url.Action("Index", "Genre", new {genre.id})'">
+                @if (Model.GetSelectedGenre != null && Model.GetSelectedGenre.id == genre.id)
+                {
+                    <td style="background-color:green">
+                        @genre.id
+                    </td>
+                    <td style="background-color:green">
+                        @genre.name
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        @genre.id
+                    </td>
+                    <td>
+                        @genre.name
+                    </td>
+                }
             </tr>
         }
     </tbody>
@@ -28,5 +40,14 @@
 
 <form action="/Genre/CreateGenre">
     <input type="submit" value="Add" />
+</form>
+
+<form action="/Genre/UpdateGenre">
+    <input type="hidden" value="@Model.GetSelectedGenre.id" name="id"/>
+    <input type="submit" value="Update"/> 
+</form>
+<form action="/Genre/DeleteGenre">
+    <input type="hidden" value="@Model.GetSelectedGenre.id" name="id" />
+    <input type="submit" value="Delete"/>
 </form>
 

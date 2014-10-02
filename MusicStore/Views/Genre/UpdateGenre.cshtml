@@ -1,0 +1,27 @@
+﻿@model MusicStore.Models.GenreViewModel
+@{
+    ViewBag.Title = "UpdateGenre";
+}
+
+<h2>UpdateGenre</h2>
+<form action="UpdateGenre" method="POST">
+
+    <div class="row">
+
+        <div class="col-md-2">
+            Genre Name:
+            <br />
+            Genre Id:
+
+        </div>
+        <div class="col-md-6">
+            <input type="text" value="@Model.GetSelectedGenre.name" name="name" />
+            <br />
+            <input type="text" value="@Model.GetSelectedGenre.id" name="id" />
+            <br />
+
+        </div>
+    </div>
+    <input type="submit" value="Update" />
+</form>
+    

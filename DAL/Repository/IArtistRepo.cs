@@ -4,7 +4,12 @@ namespace DAL.Repository
 {
     public interface IArtistRepo
     {
-             List<Artist> GetAllArtist();
-             void CreateArtist(Artist artist);
+        List<Artist> GetAllArtist();
+        Artist GetArtistById(int? id);
+        void CreateArtist(Artist artist);
+
+        void UpdateArtist(Artist artist);
+
+        void DeleteArtist(int id);
     }
 }
